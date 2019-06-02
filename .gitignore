@@ -1,0 +1,8 @@
+.vscode
+
+fastcampus/**/*/*
+!fastcampus/*/*.md
+!fastcampus/*/*.c
+
+mail/.vscode
+mail/*/*.class
