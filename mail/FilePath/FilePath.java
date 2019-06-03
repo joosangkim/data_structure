@@ -14,7 +14,7 @@ import java.util.Stack;
  */
 public class FilePath {
 
-    static String getPath(String path) {
+    static String getPathBak(String path) {
         String[] arr = path.split("/");
         Stack<String> temp = new Stack<String>();
         // O(n)
@@ -36,6 +36,23 @@ public class FilePath {
             }
         }
         return String.join("/",ret)+"/";
+    }
+
+    static String getPath(String path) {
+        String[] arr = path.split("/");
+        Stack<String> temp = new Stack<String>();
+        // O(n)
+        for (String e : arr ){
+            if (e.equals(".")){
+                continue;
+            }else if (e.equals("..")){
+                if (temp.size() > 0 )
+                    temp.pop();
+            }else{
+                temp.add(e);
+            }
+        }
+        return String.join("/",temp)+"/";
     }
 
     public static void main(String args[]) {
